@@ -1,0 +1,205 @@
+\documentclass[11pt,oneside,article,extrafontsizes]{memoir}
+
+% Encodings %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[utf8]{inputenc} % <-- if using utf-8, which you *should*
+\usepackage[T1]{fontenc}
+
+\newcommand{\MyName}{T\'assio Naia}
+
+% Paper size (height, width) see memoir manual %%%%%%%%%%%%%%%%%%%%%%%
+% Stock size versus trimmed size: imagine you print your page in a
+% sheet of paper which is larger than the final size (this is how
+% books and magazines are printed). The stock size is the size of
+% the larger sheet into which your text is printed, and the trimmed
+% size is the size of the page inside of the stock page. I set them
+% to be the same, and the trims to 0pt. (See memoir's manual.)
+\setstocksize{29.7cm}{21cm}
+\settrimmedsize{29.7cm}{21cm}{*}
+\settrims{0pt}{0pt}
+
+% Margins %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setlrmarginsandblock{3\parindent}{7\parindent}{*}
+\setulmarginsandblock{3\parindent}{*}{1}
+\checkandfixthelayout % apply paper size and margins
+
+
+
+
+% Language %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[english]{babel} % hyphenation in english
+
+% better typography %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lmodern}
+\usepackage[final]{microtype}
+
+% Figures %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{tikz} % this loads ``graphicsx''
+
+% Shortcuts for mathematics %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\input{matemacros}
+
+% Theorems, Lemmas, etc. %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Theorems are labelled according to the chapter, and everything is
+% labelled in the same sequence as the theorems, e.g.:
+%
+% CHAPTER 1 (equivalent to section 1 in article class)
+% Theorem 1.1, Lemma 1.2, Remark
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{fact}[theorem]{Fact}
+\newtheorem{claim}[theorem]{Claim}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+% Questions, Answers and Examples are not numbered %%%%%%%%%%%%%%%%%%%
+\newenvironment{question}{%
+  \par\smallskip\noindent\textbf{Question} \ignorespaces%
+ }{%
+  \par\smallskip}
+\newenvironment{answer}{%
+  \par\smallskip\noindent\textbf{Answer} \ignorespaces%
+ }{%
+  \par\smallskip}
+\newenvironment{examples}{%
+  \par\smallskip\noindent\textbf{Examples} \ignorespaces%
+ }{%
+  \par\smallskip}
+\newenvironment{example}{%
+  \par\smallskip\noindent\textbf{Example} \ignorespaces%
+ }{%
+  \par\smallskip}
+
+
+
+
+% Show equation labels %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Must appear after amsmath (I load it in matemacros)
+\usepackage[outer]{showlabels}
+% Smaller label font
+\renewcommand{\showlabelfont}{\tiny\ttfamily}
+\renewcommand{\showlabelsetlabel}[1]%
+             {%\begin{turn}{-60}
+               \showlabelfont #1%
+               %\end{turn}
+             }
+
+
+\usepackage[colorlinks,%
+  linkcolor=green!40!blue,%
+  citecolor=blue,%
+  urlcolor=red,%
+  pdfauthor={\MyName},%
+  final]{hyperref}
+
+% Page numbering
+\colorlet{dimcolor}{gray!85!black}
+
+\renewcommand{\hmpunct}{\medspace}
+\newcommand{\headdraftmessage}{%
+  {\textcolor{dimcolor}{\tiny\textit{\today, at \printtime}}}}
+
+\newcommand{\numeropag}{%
+  {\footnotesize\textit{\thepage\ of \thelastpage}}}
+
+\newcommand{\bannernamesanddate}{\footnotesize \MyName}
+\makeevenhead{plain}%
+  {\bannernamesanddate}{}{\textcolor{dimcolor}{\tiny\leftmark}}
+\makeoddhead{plain}%
+  {\bannernamesanddate}{}{\textcolor{dimcolor}{\tiny\leftmark}}
+
+\makeevenfoot{plain}{}{\numeropag}{\headdraftmessage}
+\makeoddfoot{plain}{}{\numeropag}{\headdraftmessage}
+\pagestyle{plain}
+
+
+% Before sending a text for revision, uncomment bellow
+%\linespread{1.5}
+
+% The document %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\begin{flushright}
+  {\Large Example Notes}
+  \medskip
+  
+  \textit{by} \MyName
+\end{flushright}
+
+\bigskip
+
+\begin{abstract}
+  Example of usage of maths template.
+  I like margins and colours.
+\end{abstract}
+
+\chapter{Introduction}
+
+Some text to show what the document looks like.
+For a~natural number~$k$ a \defi{$k$-set} is a set with~$k$ elements.
+Let~$V$ be a set.
+A~\defi{graph}
+with \defi{vertex set}~$V$
+and \defi{edge set}~$E$
+is an ordered pair of sets~$(V,E)$,
+where the elements of~$E$ are 2-sets on~$V$,
+that is, $E\subseteq\bigl\{ X\subseteq V\colon |X|=2\bigr\}$.
+
+Let $a,b$ and~$C$ be real numbers.
+To solve equations such as
+\begin{equation}\label{eq:2nd-degree}
+  ax^2 + bx + c = 0,
+\end{equation}
+we complete squares, as follows
+\begin{align}
+  ax^2 + bx + c
+  & = 0 &\iff\nonumber\\
+  x^2 + \frac{b}{a}x + \frac{c}{a}
+  & = 0 &\iff\nonumber\\
+  x^2
+  + \frac{b}{a}x
+  + \left(\frac{b}{2a}\right)^2 -\left(\frac{b}{2a}\right)^2
+  +\frac{c}{a}
+  & = 0 &\iff\nonumber\\
+  \left(x + \frac{b}{2a}\right)^2
+  & = \frac{b^2 - 4ac}{4a^2}&\iff\nonumber\\
+  x + \frac{b}{2a}
+  & = \frac{\pm\sqrt{b^2 - 4ac}}{2a}&\iff\nonumber\\
+  x = \frac{-b \pm \sqrt{b^2 -4ac}}{2a} \label{eq:bhaskara}
+\end{align}
+
+\clearpage
+
+Some text on the second page, to test header and footer.
+
+\begin{figure}
+  \begin{center}
+    \caption{Circles in a circle. A loop using tikz.}\label{fig:tikz}
+    \begin{tikzpicture}
+      % We loop on angles 15, 30, 45, ..., 360
+      \foreach \angle in {15,30,...,360} {
+        % Draw a circle on the polar coordinates (\angle:5cm)
+        % orange is the filling colour,
+        % and red (mixed with black) is the border colour
+        \fill [orange,draw=red!80!black] (\angle:5cm) circle (10pt);
+      }
+
+      % write ``hi pi'' in the middle (cartesian coordinates)
+      \node [circle] (aloha) at (0,0) {hi $\sqrt{\pi}$};
+
+      \foreach \angle in {0,30,...,330} {
+        % Some text 
+        \node [circle] (text \angle) at (\angle:3cm) {$\angle^\circ$};
+
+        % And arrows!
+        \draw [->] (aloha) -- (text \angle);
+      }
+    \end{tikzpicture}
+  \end{center}
+\end{figure}
+\end{document}

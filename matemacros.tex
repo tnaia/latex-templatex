@@ -1,0 +1,156 @@
+% -*- coding: utf-8-unix -*-
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage{amsthm}
+
+% I like to mark definitions on a different colour
+\newcommand{\defi}[1]{{\color{red!80!black}\emph{#1}}}
+
+\DeclareMathOperator{\girth}{g}
+
+% Use a different (rounder) symbol for the empty set
+\let\emptyset\varnothing
+
+% Shortcut for defining new commands
+\let\nc\newcommand
+
+% Epsilons
+\nc{\eps}{\ensuremath{\varepsilon}}
+\nc{\veps}{\ensuremath{\varepsilon}}
+
+% Arrows
+\nc{\orr}[1]{\ensuremath{\overrightarrow{#1}}}
+\nc{\olr}[1]{\ensuremath{\overleftarrow{#1}}}
+\nc{\rar}{\rightarrow}
+\nc{\lar}{\leftarrow}
+
+% Asymptotics
+\nc{\littleo}{\ensuremath{{o}}}
+\nc{\bigoh}[1]{\ensuremath{\mathrm{O}(#1)}}
+
+% in- and outneighbourhoods
+\nc{\Nplus}{\ensuremath{N^+}}
+\nc{\Nminus}{\ensuremath{N^-}}
+
+\nc{\Dplus}{\ensuremath{D^+}}
+\nc{\Dminus}{\ensuremath{D^-}}
+\nc{\dplus}{\ensuremath{\mathrm{d}^+}}
+\nc{\dminus}{\ensuremath{\mathrm{d}^-}}
+
+% minimum and maximum in- and outdegrees
+\nc{\Deltaplus}{\ensuremath{\Delta^+}}
+\nc{\Deltaminus}{\ensuremath{\Delta^-}}
+\nc{\deltaplus}{\ensuremath{\delta^+}}
+\nc{\deltaminus}{\ensuremath{\delta^-}}
+
+% SEQUENCES
+% Use:
+% \sql{a_}{n} generates a_1,a_2,\ldots,a_n in math mode
+% \sqc{x^}{n}{+} generates x^1 + x^2 + \cdots + x^n in math mode
+\nc{\sql}[2]{\ensuremath{#11,#12,\ldots,#1#2}}
+\nc{\sqc}[3]{\ensuremath{#11#3#12#3\cdots#3#1{#2}}}
+
+% and between quads
+\nc{\qqand}{\qquad\text{and}\qquad}
+\nc{\qand}{\quad\text{and}\quad}
+
+\makeatletter
+\DeclareRobustCommand{\rvdots}{%
+  \vbox{
+    \baselineskip4\p@\lineskiplimit\z@
+    \kern-\p@
+    \hbox{.}\hbox{.}\hbox{.}
+  }}
+\makeatother
+
+\DeclareMathOperator{\free}{free}
+\DeclareMathOperator{\ex}{ex}
+\DeclareMathOperator{\col}{col}
+\DeclareMathOperator{\degen}{degen}
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\aut}{aut}
+\DeclareMathOperator{\agrup}{agrup}
+\DeclareMathOperator{\dens}{dens}
+\nc{\dcorte}{\ensuremath{d_{\Box}}}
+\nc{\delcorte}{\ensuremath{\delta_{\Box}}}
+\nc{\tildew}{\ensuremath{\widetilde{\mathcal{W}}}}
+\nc{\tilf}{\ensuremath{\tilde{f}}}
+\nc{\tilg}{\ensuremath{\tilde{g}}}
+
+\nc{\lo}{\ensuremath{{\mathrm o}}}
+\nc{\vecx}{\ensuremath{\mathbf{x}}}
+\nc{\vecy}{\ensuremath{\mathbf{y}}}
+\nc{\dx}{\ensuremath{\mathrm{d}x}}
+\nc{\mycal}[1]{\ensuremath{\mathcal{#1}}}
+\nc{\mybb}[1]{\ensuremath{\mathbb {#1}}}
+\nc{\TV}{\text{TV}}
+\nc{\dd}{\ensuremath{\mathrm{d}}}
+\nc{\deq}{\ensuremath{\coloneqq}}%\rightleftharpoons}}%\doteq}}
+\renewcommand{\P}{\ensuremath{\mathrm{P}}}
+
+
+\nc{\txtleft}{\text{left}}
+\nc{\txtright}{\text{right}}
+\nc{\txtcentre}{\text{centre}}
+\nc{\vc}{\ensuremath{v_\txtcentre}}
+\nc{\Xr}{\ensuremath{X_\txtright}}
+\nc{\Xl}{\ensuremath{X_\txtleft}}
+
+% Letters CALigrafic and BlackBoard
+\nc{\cala}{\mycal{A}}
+\nc{\calb}{\mycal{B}}
+\nc{\calc}{\mycal{C}}
+\nc{\cald}{\mycal{D}}
+\nc{\cale}{\mycal{E}}
+\nc{\calf}{\mycal{F}}
+\nc{\calg}{\mycal{G}}
+\nc{\calh}{\mycal{H}}
+\nc{\cali}{\mycal{I}}
+\nc{\calj}{\mycal{J}}
+\nc{\calk}{\mycal{K}}
+\nc{\call}{\mycal{L}}
+\nc{\calm}{\mycal{M}}
+\nc{\caln}{\mycal{N}}
+\nc{\calo}{\mycal{O}}
+\nc{\calp}{\mycal{P}}
+\nc{\calq}{\mycal{Q}}
+\nc{\calr}{\mycal{R}}
+\nc{\cals}{\mycal{S}}
+\nc{\calt}{\mycal{T}}
+\nc{\calu}{\mycal{U}}
+\nc{\calv}{\mycal{V}}
+\nc{\calw}{\mycal{W}}
+\nc{\calx}{\mycal{X}}
+\nc{\caly}{\mycal{Y}}
+\nc{\calz}{\mycal{Z}}
+
+\nc{\bba}{\mybb{A}}
+\nc{\bbb}{\mybb{B}}
+\nc{\bbc}{\mybb{C}}
+\nc{\bbd}{\mybb{D}}
+\nc{\bbe}{\mybb{E}}
+\nc{\bbf}{\mybb{F}}
+\nc{\bbg}{\mybb{G}}
+\nc{\bbh}{\mybb{H}}
+\nc{\bbi}{\mybb{I}}
+\nc{\bbj}{\mybb{J}}
+\nc{\bbk}{\mybb{K}}
+\nc{\bbl}{\mybb{L}}
+\nc{\bbm}{\mybb{M}}
+\nc{\bbn}{\mybb{N}}
+\nc{\bbo}{\mybb{O}}
+\nc{\bbp}{\mybb{P}}
+\nc{\bbq}{\mybb{Q}}
+\nc{\bbr}{\mybb{R}}
+\nc{\bbs}{\mybb{S}}
+\nc{\bbt}{\mybb{T}}
+\nc{\bbu}{\mybb{U}}
+\nc{\bbv}{\mybb{V}}
+\nc{\bbw}{\mybb{W}}
+\nc{\bbx}{\mybb{X}}
+\nc{\bby}{\mybb{Y}}
+\nc{\bbz}{\mybb{Z}}
+
