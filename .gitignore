@@ -1,0 +1,13 @@
+*.log
+*.aux
+*.pdf
+*~
+.\#*
+.DS_Store
+*.out
+*.bak
+*.bbl
+*.blg
+*.toc
+*.auxlock
+tikz-repository/*
