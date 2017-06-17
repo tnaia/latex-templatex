@@ -9,16 +9,26 @@
 
 % Text block dimensions (height, width) ===============================
 % A4: 29.7 cm x 21 cm
-\settypeblocksize{19cm}{25.7cm}{*}% vertical, horizontal
+\settypeblocksize{25.7cm}{15cm}{*}% vertical, horizontal
 
 % Margins =============================================================
 \setlrmargins{*}{*}{1}
 \setulmargins{*}{*}{1}
 
+% Side paragraphs =====================================================
+% Uncomment the next line to have smaller text on side paragraphs.
+% \renewcommand{\sideparfont}{\normalfont\footnotesize}
+
 % Apply the changes above to document layout ==========================
 \checkandfixthelayout
 
 \begin{document}
+
+% To add a file, say `cover.tex', use \input{cover}
+% ommitting the  `.tex' at the end.
+\input{cover}
+
+\tableofcontents
 
 % Here you may include your chapters.
 % For instance, if you have files
@@ -29,7 +39,7 @@
 % and if your bibliography file is called biblio.bib, then
 % you may uncomment the following lines
 %
-% \input{intro}
+\input{intro}
 % \input{methods}
 %
 % \bibliographystyle{plain}

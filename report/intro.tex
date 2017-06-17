@@ -1,0 +1,19 @@
+\chapter{Introduction}
+
+Introductions in reports are so ubiquitous! Let me \emph{emphasize} this fact once more,
+and remark\footnote{In a footnote.} that footnotes are sometimes a necessary evil in a report.
+
+\section{Notation}
+
+It may be useful to define commands, using \cs{newcommand},
+For example
+\begin{quote}
+  \verb!\newcommand{\celegans}{C. Elegans}!
+\end{quote}
+defines a command \cs{celegans} which prints `C.\ Elegans'.
+You probably prefer that species names are emphasized, so
+\begin{quote}
+  \verb!\newcommand{\celegans}{\emph{C. Elegans}}!
+\end{quote}
+probably works better, yielding `\emph{C. Elegans}` (without quotes)
+when you type \cs{celegans}.
